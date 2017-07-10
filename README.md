@@ -1,5 +1,8 @@
 # xlsx-git
 Convert .xlsx files to XML before committing them to git
+Altered all .xslx references to .docx
+
+It seems very error prone - like losing your document. Did not repack the docx. Spent too much time on a maybe feature. If its to be done it needs someone highly proficient at git hooks and proper error handling and checking, especially how you move from a repo which doesn't use these hooks to one that does. It seems very slow to checkout a branch.
 
 ## Overview
 .xlsx (and other MS Office files) are stored as ZIP-compressed XML files. Git, by default, treats them as binary files, so whenever you make a change to an Excel file and then commit it to your repo, almost the entire content of the file changes. Git tools like git-diff or git-revert thus can't do much good. 

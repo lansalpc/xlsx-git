@@ -9,6 +9,7 @@
 # -- config -- #
 TMP_PREFIX='.~' # prefix XML directory--should NOT conflict with 
                    # anything in your repo
+export TMP_PREFIX
 
 # -- end config -- #
 
@@ -22,13 +23,14 @@ repack_xlsx () {
     zip "../$1" -r *
     cd ..
 }
+export -f repack_xlsx
 
 # make it easy to iterate over subdirectories
 shopt -s globstar
 
 # repack all the zipfiles
 start_dir="$(pwd)"
-for i in **/${TMP_PREFIX}*.xlsx; do 
+for i in **/${TMP_PREFIX}*.docx; do 
     dir=$(dirname "$i")
     base=$(basename "$i")
     file=${base:${#TMP_PREFIX}}
